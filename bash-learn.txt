@@ -1,0 +1,108 @@
+ls -lah : list longallhumanreadable
+izinleri gösterir
+rwx=7
+rw-=6
+r-x=5
+...
+
+- dosya
+l link
+d directory
+
+----------------------------------------------------------------
+
+du -sh * : disk usage, -sh : summaryhumanreable,  *: shell wildcard (tüm dosyalar)
+
+----------------------------------------------------------------
+
+ 
+df -h : disk free -h:humanreadable, bos alani gosterir
+
+----------------------------------------------------------------
+
+ 
+ps aux : process status, -a:all, u:user-oriented format cpu/mem kullanımı,x: include processes without terminal 
+
+----------------------------------------------------------------
+
+top : yukaridaki snapshot bu anlik
+
+top ekranındaki önemli alanlar:
+
+uptime → Sistem ne kadar çalışıyor
+
+tasks → Toplam süreç sayısı, kaç tanesi running/sleeping/zombie
+
+CPU usage → %user, %system, %iowait, %idle
+
+Mem / Swap → Kullanılan ve boş RAM
+
+PID / USER / PR / NI / VIRT / RES / SHR / S / %CPU / %MEM / TIME+ / COMMAND → Süreç detayları
+
+
+----------------------------------------------------------------
+htop : usttekinin sekillisi
+
+----------------------------------------------------------------
+
+
+kill PID : verilen processid servisini kibarca oldur
+kill -9 PID : verilen processid servisini zorla oldur
+
+----------------------------------------------------------------
+
+systemctl list-units --type=service
+
+systemctl → systemd kontrol komutu
+
+Linux’ta servisleri yönetmek, başlatmak, durdurmak, restart etmek için kullanılır.
+
+list-units → systemd’deki tüm aktif unit’leri listeler
+
+--type=service → sadece service tipi unit’leri gösterir (socket, mount, target gibi diğer unit’ler hariç)
+
+
+systemctl status nginx
+systemctl start nginx
+systemctl stop nginx
+systemctl restart nginx
+
+systemctl list-units --type=service --state=failed : fail olan servisleri goruntule
+----------------------------------------------------------------
+
+
+if - the conditional tests
+Comparison operators
+
+----------------------------------------------------------------
+
+• Basic comparisons:
+
+-f= exists and is a file
+-d= exists and is a directory
+-h= exists and is symbolic link
+-r= has read permission
+-w= has write permission
+-x= has execute permission
+-O= you are the owner of the file
+-nt= is newer than
+-ot= is older than
+!= is false
+
+----------------------------------------------------------------
+
+• Integer comparisons:
+-eq= is equal to
+-ne= is no equal to
+-gt= is greater than
+-ge= is greater than or equal to
+-lt= is less than
+-le= is less than or equal to
+• String comparisons:
+=	=	== : is equal to
+!== is not equal to
+-z= string is null
+-n= string is not null
+
+----------------------------------------------------------------
+
