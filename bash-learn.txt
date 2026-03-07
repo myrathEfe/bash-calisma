@@ -106,3 +106,13 @@ Comparison operators
 
 ----------------------------------------------------------------
 
+awk: okuma, filtreleme icin kullanilir
+
+awk '{print $1}' dosya.txt  :  birinci sütunu yazdırır.
+
+sed: dosyada metin yer degistirme genel manipulasyon
+
+sed 's;C;B;1' : ilk gordugu C'yi B ile degistirir s set 1(ilk gordugu)
+
+----------------------------------------------------------------
+
