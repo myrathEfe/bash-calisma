@@ -1,0 +1,56 @@
+
+/var/log/syslog : Sistem üzerinde çalışan servislerin ve programların oluşturduğu genel sistem loglarını gösterir.
+
+belirli calistirma bicimleri;
+
+1.	grep -i error /var/log/syslog
+2.	grep "2026-03-09" /var/log/syslog | grep firefox
+3.	grep -i denied /var/log/syslog
+
+bazi calistirma bicimleri;
+
+1.	tail /var/log/syslog (son loglar)
+2.	tail -f /var/log/syslog (son loglar canli)
+3.	less /var/log/syslog (sayfa sayfa goruntulemek icin)
+
+
+----------------------------------------------------------------------
+
+/var/log/auth.log : Kullanıcı girişleri, sudo kullanımı ve kimlik doğrulama işlemlerinin loglarını tutar.
+
+neler icerir : login/logout, ssh girisleri, sudo kullanimi, basarisiz girisler, root erisimleri.
+
+ornek kullanim:
+
+grep sudo /var/log/auth.log
+
+----------------------------------------------------------------------
+
+/var/log/kern.log : kernel tarafindan olusturulan loglari icerir
+
+neler icerir : donanim olaylari, driver mesajlari, disk olaylari, ag olaylari, guvenlik olaylari, kernel hatalari
+
+ornek kullanim :
+
+grep -i usb /var/log/kern.log
+grep -i network /var/log/kern.log
+grep -i fail /var/log/kern.log
+
+----------------------------------------------------------------------
+
+
+/var/log/dmesg : linux kernel mesajlarini goruntuleyen komuttur.
+
+neler icerir : sistem acilis mesajlari, donanim tespiti, usb, disk, driver, kernel errors
+
+ornek kullanimlar : 
+
+dmesg
+dmesg | less
+dmesg | grep -i error
+dmesg | grep -i usb
+dmesg | grep -i sda (disk ile ilgili loglar)
+dmesg -T (human readable)
+dmesg -w (yeni kernel mesajlari)
+
+----------------------------------------------------------------------
