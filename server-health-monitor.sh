@@ -16,4 +16,24 @@ END {
         printf "%-10s : %.1f%%\n", u, cpu_usage[u]
 }
 '
-##devam edecek...
+
+free | head -2 | tail -1 | awk '{
+total=$2
+avail=$7
+print "------------------------"
+printf "TOTAL RAM USAGE : %.2f%%\n", (total-avail)/total *100
+print "------------------------"
+}'
+
+echo "------------------------"
+echo "TOTAL DISK USAGE"
+echo "------------------------"
+df | awk '$1 ~/^\/dev\//{ #burada regex kullanimi var. daha detayli bakmak lazim.
+printf "%-10s : %s used (%s free)\n", $6, $5, $4
+}'
+
+echo "------------------------"
+echo "UPTIME : " $(uptime)
+echo "------------------------"
+
+echo "Written by myrathEfe"
